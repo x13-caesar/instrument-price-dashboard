@@ -57,11 +57,11 @@ export default function App() {
     <div className="app">
       <header>
         <h1>Instrument Price Dashboard</h1>
-        <p className="muted">Daily closing prices over a 30-day window</p>
+        <p className="subtitle">Daily closing prices over a 30-day window</p>
       </header>
 
       <div className="layout">
-        <aside>
+        <aside className="card">
           <Status loading={instruments.loading} error={instruments.error} onRetry={instruments.retry} />
           {instruments.data && (
             <TickerPicker
@@ -73,7 +73,7 @@ export default function App() {
           )}
         </aside>
 
-        <main>
+        <main className="card">
           {selected.length === 0 ? (
             <p className="empty">
               Select a ticker to see its price chart. Pick up to {MAX_SELECTED} to compare.

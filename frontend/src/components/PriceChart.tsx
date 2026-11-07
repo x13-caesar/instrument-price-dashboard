@@ -45,7 +45,7 @@ export function PriceChart({ series }: { series: ChartSeries[] }) {
         {compare ? 'Change since first day (%)' : `${series[0].ticker} closing price`}
       </figcaption>
       <ResponsiveContainer width="100%" height={360}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
+        <LineChart data={data} margin={{ top: 8, right: 24, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="var(--grid)" vertical={false} />
           <XAxis
             dataKey="date"
