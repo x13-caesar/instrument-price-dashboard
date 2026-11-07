@@ -21,8 +21,6 @@ def load_prices(path: str | Path) -> PriceData:
         raise ValueError(f"{path}: no data rows")
     if df.isna().any().any():
         raise ValueError(f"{path}: missing values in {df.columns[df.isna().any()].tolist()}")
-    if (df["price"] <= 0).any():
-        raise ValueError(f"{path}: prices must be positive")
     if df.duplicated(["ticker", "date"]).any():
         raise ValueError(f"{path}: duplicate (ticker, date) rows")
 
