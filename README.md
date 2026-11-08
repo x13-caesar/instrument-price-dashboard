@@ -75,14 +75,14 @@ The 38 tests cover CSV loading and validation, the stats calculations (checked a
 
 ## Design decisions
 
-- **Python instead of C#.** The brief asks for a C# backend. I built it with Python + FastAPI instead as I think it makes more sense to this Python role, keeping the same endpoints and behavior.
+- **Python instead of C#.** The brief asks for a C# backend. Python is also listed for this role and is my strongest backend language, so after checking with the recruiter I built the backend with Python and FastAPI. The endpoints and behaviour follow the brief.
 - **Comparison uses % change.** With one ticker selected, the chart shows its closing price. With 2–3 tickers, it plots % change since the first day, so instruments at very different price levels (e.g. 60 vs 460) share one readable axis. The stats table still shows the actual first and last prices.
 - **Unknown-ticker path.** Pressing Enter in the search box selects the first match. If nothing matches, the app asks the API for the typed ticker anyway, so the API's 404 is shown to the user as "Unknown ticker: X".
 
 ## Use of AI coding assistants
 
-This project was built with **Claude Code** as a programming assist. the assistant drafted code of the following parts, which I reviewed.
+This project was built with **Claude Code** as a programming assistant. the assistant drafted code of the following parts, which I reviewed.
 
-- **Backend:** it checked csv file and defined pydantic data models accordingly. It wrote pytest suite. It cross-checked the stats against a separate plain-Python calculation.
-- **Frontend:** it scaffolded the Vite app. It verified the UI states (single ticker, comparison, unknown ticker, API unreachable, phone width) with a headless-Chrome script. It restyle the app to match Pharo color palette. 
+- **Backend:** it inspected the CSV and defined the Pydantic models accordingly, wrote the pytest suite, and cross-checked the stats against a separate plain-Python calculation.
+- **Frontend:** it scaffolded the Vite app. It verified the UI states (single ticker, comparison, unknown ticker, API unreachable, phone width) with a headless-Chrome script. It restyled the app to match Pharo color palette. 
 - **Docs:** it drafted this README.
